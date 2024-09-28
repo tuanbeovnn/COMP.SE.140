@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  service1:
+    build: ./nodets-boilerplate
+    depends_on:
+      - service2  # Ensure service2 starts first
+    ports:
+      - "8199:8199"
+    networks:
+      - my_network
+    restart: always  # Restart on failure
+    entrypoint: >
+      sh -c "sleep 10 && npm start"  # Delay service1 for 10 seconds to give service2 time to start
+
+  service2:
+    build: ./docker
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - my_network
+    restart: always  # Restart on failure
+
+networks:
+  my_network:
+
