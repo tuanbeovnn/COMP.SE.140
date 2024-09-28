@@ -52,7 +52,13 @@ public class DockerApplication {
     }
 
     private String getUptime() throws Exception {
-        long uptime = ManagementFactory.getRuntimeMXBean().getUptime();
-        return String.format("%d minutes", uptime / (1000 * 60));
+        long uptimeInMillis = ManagementFactory.getRuntimeMXBean().getUptime();
+        long uptimeInSeconds = uptimeInMillis / 1000;
+
+        long hours = uptimeInSeconds / 3600;
+        long minutes = (uptimeInSeconds % 3600) / 60;
+        long seconds = uptimeInSeconds % 60;
+
+        return String.format("%d hours %d minutes %d seconds", hours, minutes, seconds);
     }
 }
