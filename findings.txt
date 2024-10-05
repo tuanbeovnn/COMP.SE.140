@@ -1,0 +1,7 @@
+Containers are isolated environments but share some resources with the host. One of the most significant resources they share is the host's kernel. Since containers do not have their own kernel, they rely on the host's Linux kernel to run. This enables containers to be lightweight compared to virtual machines.
+
+Containers can also share network resources with the host system or other containers. By default, Docker containers run in an isolated network, but when containers are connected to a Docker network (like the one defined in the `docker-compose.yaml`), they can communicate with each other internally using their service names.
+
+Additionally, containers can share file systems with the host when volumes are mounted. In this assignment, no volumes were mounted, so the file systems remain isolated. However, if we had mounted a volume, both the host and the container would be able to access and modify files in that volume.
+
+Finally, containers are able to access the host's CPU and memory, though resource limits can be set in Docker to control the amount of CPU and memory each container can use. In this case, no such limits were applied, so the containers can utilize whatever resources are available on the host.

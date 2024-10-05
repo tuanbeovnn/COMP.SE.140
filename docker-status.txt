@@ -1,0 +1,8 @@
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS                     PORTS                    NAMES
+5811670a2e17   compse140-service1   "sh -c 'sleep 10 && …"   8 minutes ago   Up 8 minutes               0.0.0.0:8199->8199/tcp   compse140-service1-1
+f776e74010e3   compse140-service2   "java -jar service2.…"   8 minutes ago   Up 8 minutes (unhealthy)   8080/tcp                 compse140-service2-1
+NETWORK ID     NAME                   DRIVER    SCOPE
+7a9873d22877   bridge                 bridge    local
+842b6029ef0e   compse140_my_network   bridge    local
+7d4995f91b5e   host                   host      local
+dabf95e4ebb9   none                   null      local
