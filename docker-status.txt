@@ -1,8 +1,10 @@
-CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS                     PORTS                    NAMES
-5811670a2e17   compse140-service1   "sh -c 'sleep 10 && …"   8 minutes ago   Up 8 minutes               0.0.0.0:8199->8199/tcp   compse140-service1-1
-f776e74010e3   compse140-service2   "java -jar service2.…"   8 minutes ago   Up 8 minutes (unhealthy)   8080/tcp                 compse140-service2-1
-NETWORK ID     NAME                   DRIVER    SCOPE
-7a9873d22877   bridge                 bridge    local
-842b6029ef0e   compse140_my_network   bridge    local
-7d4995f91b5e   host                   host      local
-dabf95e4ebb9   none                   null      local
+CONTAINER ID   IMAGE                                         COMMAND                  CREATED         STATUS                             PORTS                                                                                                                                                       NAMES
+fe18acc45805   nginx:latest                                  "/docker-entrypoint.…"   4 minutes ago   Up 51 seconds                      0.0.0.0:8198->80/tcp                                                                                                                                        compse140-nginx-1
+cf885e31c98d   compse140_service1                            "docker-entrypoint.s…"   4 minutes ago   Up 51 seconds                      8199/tcp                                                                                                                                                    compse140-service1-2
+3d0b86b6d7c5   compse140_service1                            "docker-entrypoint.s…"   4 minutes ago   Up 51 seconds                      8199/tcp                                                                                                                                                    compse140-service1-1
+a842217d96e7   compse140_service2                            "java -jar service2.…"   4 minutes ago   Up 51 seconds (health: starting)   0.0.0.0:49608->8080/tcp                                                                                                                                     compse140-service2-1
+423a3584715e   compse140_service1                            "docker-entrypoint.s…"   4 minutes ago   Up 51 seconds                      8199/tcp                  
+
+
+NETWORK ID     NAME                          DRIVER    SCOPE
+9fceaab24071   compse140_my_network          bridge    local
