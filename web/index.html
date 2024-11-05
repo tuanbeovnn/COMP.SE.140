@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Interface</title>
+  <script>
+    async function sendRequest() {
+      try {
+        // Check if we're requesting the correct endpoint
+        const response = await fetch('/process', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        console.log(response)
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        document.getElementById('responseArea').value = JSON.stringify(data, null, 2);
+      } catch (error) {
+        document.getElementById('responseArea').value = 'Error: Unable to reach Service1';
+      }
+    }
+  
+    function stopRequest() {
+      document.getElementById('responseArea').value = "Stopped";
+    }
+  </script>
+  
+  
+</head>
+<body>
+  <h1>Service Control</h1>
+  <button onclick="sendRequest()">REQUEST</button>
+  <button onclick="stopRequest()">STOP</button>
+  <textarea id="responseArea" rows="4" cols="50"></textarea>
+</body>
+</html>

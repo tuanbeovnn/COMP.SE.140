@@ -64,7 +64,7 @@ const getService2Info = async (): Promise<any> => {
 };
 
 // Endpoint to get system information
-app.get('', async (req, res) => {
+app.get('/process', async (req, res) => {
     try {
         const ipAddress = getIPAddress();
         const runningProcesses = await getRunningProcesses();
