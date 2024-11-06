@@ -6,4 +6,4 @@ Step 3: Access web browser with localhost:8198
 
 Step 4: username: admin | password: 123456
 
-Step 4: docker-compose down
+Step 5: docker-compose down
